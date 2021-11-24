@@ -279,7 +279,7 @@
     <ClCompile Include="2579.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="%28ING%29 10844.cpp">
+    <ClCompile Include="10844.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="2156.cpp">
@@ -288,7 +288,19 @@
     <ClCompile Include="9184.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="1149.cpp">
+    <ClCompile Include="1149_greedy.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="counterExample.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1149_dp.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1463.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1463_dp.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

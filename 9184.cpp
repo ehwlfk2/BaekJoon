@@ -15,7 +15,7 @@ int getW(int a, int b, int c) {
 	}
 }
 
-// w[a][b][c] 에 해당하는 value를 반환.
+// 문제에서 제공하는 재귀 코드 변환 : memoization.
 int insertValue(int a, int b, int c) {
 	int value;
 	if (a < 1 || b < 1 || c < 1) {
@@ -32,8 +32,11 @@ int insertValue(int a, int b, int c) {
 
 // w 배열을 만들어두고 사용한다. 처음 만들 때만 시간이 걸리고 다음부터는 O(1)의 속도.
 void createWArray() {
+	// 0 이하일때는 언제나 1 반환 : 초기값이 1부터.
 	for (int a = 1; a < 21; a++) {
+		// 20까지의 수가 필요 : 최대값 21.
 		for (int b = 1; b < 21; b++) {
+			// w 배열에 들어갈 값는 문제에서 제공해주는 재귀 코드를 활용.
 			for (int c = 1; c < 21; c++) {
 				w[a][b][c] = insertValue(a, b, c);
 			}
@@ -41,10 +44,8 @@ void createWArray() {
 	}
 }
 
-
-
 int main() {
-	std::ios_base::sync_with_stdio(false); 
+	std::ios_base::sync_with_stdio(false);
 	std::cin.tie(NULL);
 
 	// create w Array.
