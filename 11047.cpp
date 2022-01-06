@@ -15,7 +15,8 @@ void input() {
 int minCoinCount() {
 	int ret = MAX, tmp, cnt;
 	// 현재 코인의 가치가 지불해야되는 가치보다 작은 경우까지만 반복.
-	for (int i = 0; i < n && k > coin[i]; i++) {
+	for (int i = 0; i < n && k >= coin[i]; i++) {
+		// cnt : 동전 갯수, tmp : 잔액
 		cnt = 0, tmp = k;
 		// 현재 코인으로 계산 후 잔액이 있으면 더 작은 가치를 가진 코인으로 잔돈 계산.
 		for (int j = i; j >= 0 && tmp > 0; j--) {
