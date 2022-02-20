@@ -1,59 +1,45 @@
+/**
+* 11650. 좌표 정렬하기
+* a, b 쌍으로 값이 주어진다.
+* (1) a의 오름차순
+* (2) a 값이 같을 때, b 오름차순
+*/
 #include<iostream>
+#include<string>
+#include<algorithm>
+#define max 100001
 using namespace std;
 
-// 나중에 Library를 사용할 때는 Pair Class를 사용하자.
-typedef struct dic {
-	int x, y;
-}dic;
+pair<int, int> pos[max];
 
-void swap(dic* a, dic* b) {
-	dic* c = a;
-	a = b;
-	b = a;
-}
-
-void sortDic(dic* m, int st, int ed) {
-	if (st >= ed) return;
-
-	int pivot = st;
-	int s = st, e = ed + 1;
-
-	while (s <= e) {
-		do {
-			s++;
-		} while (s <= ed && 
-			(m[s].x < m[pivot].x || (m[s].x == m[pivot].x && m[s].y < m[pivot].y)));
-		do {
-			e--;
-		} while (e >= st && 
-			(m[e].x > m[pivot].x || (m[e].x == m[pivot].x && m[e].y > m[pivot].y)));
-
-		// 현재 엇갈린 상태면 e와 pivot 과 교체
-		if (s > e) {
-			swap(m[e], m[pivot]);
-		}
-		// 엇갈리지 않았다면 s와 pivot 를 교체
-		else {
-			swap(m[s], m[e]);
-		}
-	}
-
-	sortDic(m, st, e - 1);
-	sortDic(m, e + 1, ed);
+void setting() {
+	std::cout.tie(NULL);
+	std::cin.tie(NULL);
+	std::ios_base::sync_with_stdio(false);
 }
 
 int main(void) {
-
-	std::cin.tie(NULL);
-	std::ios_base::sync_with_stdio(false);
+	setting();
 
 	int n;
-	dic* m = new dic[100001];
 	cin >> n;
-	for (int i = 0; i < n; i++) {
-		cin >> m[i].x >> m[i].y;
-	}
-	sortDic(m, 0, n - 1);
 
-	for (int i = 0; i < n; i++) printf("%d %d\n", m[i].x, m[i].y);
+	for (int i = 0; i < n; i++) {
+		cin >> pos[i].first >> pos[i].second;
+	}
+
+	sort(pos, pos + n, [](const pair<int, int>& lhs, const pair<int, int>& rhs) {
+		if (lhs.first == rhs.first)
+			return lhs.second < rhs.second;
+		else
+			return lhs.first < rhs.first;
+		});
+
+	string printStr;
+	for (int i = 0; i < n; i++) {
+		printStr += to_string(pos[i].first) + " " + to_string(pos[i].second) + '\n';
+	}
+
+	cout << printStr;
+	return 0;
 }
