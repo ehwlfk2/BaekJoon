@@ -4,7 +4,11 @@
 */
 #include <stdio.h>
 #include <string.h>
+<<<<<<< HEAD
 #pragma warning(disable: 4996)
+=======
+// #pragma warning(disable: 4996)
+>>>>>>> 6847dffdb4b856b4efdd7795f7582859693a53f3
 
 int cnt;
 
